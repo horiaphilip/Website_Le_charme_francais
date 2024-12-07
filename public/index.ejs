@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le charme français</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <%- include('header.ejs'); %>
+
+    <section id="content">
+    </section>
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h2>De la peisajele Azurului si Alpilor, pana la parfumul Parisului, vei descoperi un strop din inconfundabilul "charme français"</h2>
+            </div>
+        </section>
+    </main>
+    <main>
+        <section class="newsletter">
+            <div class="container">
+                <h2>Abonează-te la newsletter-ul nostru!</h2>
+                <form id="subscribe-form"  action="check-subscription" method="post">
+                    <input type="email" id="email" name="email" required placeholder="Introdu adresa ta de email aici">
+                    <button type="submit">Abonează-te</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Le charme français - Horia Filip Radulescu. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            fetch('/check-subscription', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.subscribed) {
+                    alert('Adresa de email este deja abonată!');
+                }
+            })
+            .catch(error => {
+                console.error('Eroare:', error);
+                alert('Va multumim.');
+            });
+        });
+    </script>
+</body>
+</html>

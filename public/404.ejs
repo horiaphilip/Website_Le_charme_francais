@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina nu a fost găsită</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <% include('header') %>
+    <style>
+        body {
+            background: url('404.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        main {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+        main h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        main p {
+            font-size: 1.5rem;
+        }
+        main a {
+            color: white;
+            text-decoration: underline;
+            font-size: 1.2rem;
+        }
+    </style>
+    <main>
+        <h2>Pagina nu a fost găsită</h2>
+        <p>Ne pare rău, dar pagina pe care o căutați nu există.</p>
+        <a href="/">Înapoi la pagina principală</a>
+    </main>
+</body>
+</html>
